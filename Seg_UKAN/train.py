@@ -13,7 +13,7 @@ import torch.optim as optim
 import yaml
 
 from albumentations.augmentations import transforms
-from albumentations.augmentations import geometric
+# from albumentations.augmentations import geometric
 
 from albumentations.core.composition import Compose, OneOf
 from sklearn.model_selection import train_test_split
@@ -300,7 +300,7 @@ def main():
 
 
     elif config['optimizer'] == 'SGD':
-        optimizer = optim.SGD(params, lr=config['lr'], momentum=config['momentum'], nesterov=config['nesterov'], weight_decay=config['weight_decay'])
+        optimizer = optim.SGD(param_groups, lr=config['lr'], momentum=config['momentum'], nesterov=config['nesterov'], weight_decay=config['weight_decay'])
     else:
         raise NotImplementedError
 
@@ -337,7 +337,7 @@ def main():
 
     train_transform = Compose([
         RandomRotate90(),
-        geometric.transforms.Flip(),
+        transforms.Flip(),
         Resize(config['input_h'], config['input_w']),
         transforms.Normalize(),
     ])

@@ -1,3 +1,4 @@
+__all__ = ['UKAN']
 import torch
 from torch import nn
 import torch
@@ -13,7 +14,8 @@ import matplotlib.pyplot as plt
 from utils import *
 
 import timm
-from timm.models.layers import DropPath, to_2tuple, trunc_normal_
+# from timm.models.layers import DropPath, to_2tuple, trunc_normal_
+from timm.layers import DropPath, to_2tuple, trunc_normal_
 import types
 import math
 from abc import ABCMeta, abstractmethod
